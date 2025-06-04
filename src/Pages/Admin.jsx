@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export default function Home() {
+export default function Admin() {
   const [characters, setCharacters] = useState([]);
   const [search, setSearch] = useState("");
   const [image, setImage] = useState("");
@@ -94,13 +94,50 @@ export default function Home() {
       
       {isAdmin && (
         <div className="mb-6 p-4 rounded">
-         
-      
-       
+          <h2 className="text-xl font-semibold mb-3 text-[#00473e]">
+            Add New Character
+          </h2>
+          <input
+            type="text"
+            placeholder="Image Link"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            className="p-2 w-full mb-2 rounded-xl border-1 border-[#faae2b]"
+          />
+          <input
+            type="text"
+            placeholder="Character Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="p-2 w-full mb-2 rounded-xl border-1 border-[#faae2b]"
+          />
+          <div className="flex items-center space-x-4 mb-2">
+            <label className="flex items-center space-x-1">
+              <input
+                type="radio"
+                name="gender"
+                value="Male"
+                checked={gender === "Male"}
+                onChange={() => setGender("Male")}
+              />
+              <span className="text-[#00473e]">Male</span>
+            </label>
+            <label className="flex items-center space-x-1">
+              <input
+                type="radio"
+                name="gender"
+                value="Female"
+                checked={gender === "Female"}
+                onChange={() => setGender("Female")}
+              />
+              <span className="text-[#00473e]">Female</span>
+            </label>
+          </div>
           <button
             onClick={handleAdd}
+            className="rounded-sm p-3 grow text-center bg-yellow-500 text-[#00473e] font-bold uppercase text-sm tracking-widest hover:bg-yellow-600 transition"
           >
-        
+            ADD CHARACTER
           </button>
         </div>
       )}

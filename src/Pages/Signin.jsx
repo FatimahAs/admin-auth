@@ -22,13 +22,17 @@ export default function Signin() {
         (user) => user.name === name && user.password === password
       );
 
-      if (matchedUser) {
-       
-        localStorage.setItem('user', JSON.stringify(matchedUser));
-        
-        Swal.fire('Success', 'Welcome Back !', 'success').then(() => {
-        navigate('/');
-		});
+   if (matchedUser) {
+  localStorage.setItem('user', JSON.stringify(matchedUser));
+
+  Swal.fire('Success', 'Welcome Back!', 'success').then(() => {
+    if (matchedUser.type === 'admin') {
+      navigate('/admin'); 
+    } else {
+      navigate('/');
+    }
+  });
+
 		  
       } else {
         Swal.fire('Error', 'Name or Password in incorrect', 'error');

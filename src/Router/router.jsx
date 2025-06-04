@@ -4,7 +4,7 @@ import Footer from "../component/Footer";
 import Home from "../Pages/Home";
 import Signin from "../Pages/Signin";
 import Signup from "../Pages/Signup";
-
+import Admin from "../Pages/Admin"
 
 
 
@@ -35,7 +35,8 @@ const router = createBrowserRouter([
     children: [
 		{ path: "/", element: <Home /> },
         { path: "signin", element: <Signin /> },
-        { path:"signup" ,element:<Signup />}
+      { path: "signup", element: <Signup /> },
+         { path:"admin" ,element:<Admin />},
     ],
   },
 ]);
